@@ -1,0 +1,30 @@
+---------------------------------
+## INSTALLING JENKINS ON UBUNTU ##
+----------------------------------
+
+1. Install Java on Ubuntu
+
+$ sudo apt update
+$ sudo apt install openjdk-8-jdk
+
+Alternatively, install version 11:
+$ sudo apt update
+$ sudo apt install openjdk-11-jdk
+Confirm the download by pressing Y and
+Enter
+
+
+2. Add the repository key to the system
+    curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+    /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+
+
+3. Once the key is added with no errors, append the Debian package repository address
+$ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+
+4. Run update to use new repository
+$ sudo apt update
