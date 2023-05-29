@@ -1,4 +1,4 @@
----------------------------------
+----------------------------------
 ## INSTALLING JENKINS ON UBUNTU ##
 ----------------------------------
 
@@ -8,7 +8,6 @@ $ sudo apt update
 $ sudo apt install openjdk-8-jdk
 
 Alternatively, install version 11:
-$ sudo apt update
 $ sudo apt install openjdk-11-jdk
 Confirm the download by pressing Y and
 Enter
@@ -28,3 +27,38 @@ $ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 
 4. Run update to use new repository
 $ sudo apt update
+
+5. Install Jenkin
+$ sudo apt install jenkins
+
+
+After successful installation let us start Jenkins
+$ sudo systemctl start jenkins
+$ sudo systemctl status jenkins
+
+
+----------------------------------
+## INSTALLING JENKINS ON CentOS ##
+----------------------------------
+
+1. Install Java on CentOS 
+$sudo yum install epel-release -y
+$sudo yum install java-11-openjdk -y
+
+2. Add the repository key to the system
+$sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo --no-check-certificate
+
+3. Importing key
+$sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+
+5. Installing Jenkin
+$sudo yum install jenkins -y
+
+6. Changing Jenkins port
+Edit /lib/systemd/system/jenkins.service file and change Jenkins port to 8090 by updating 
+
+Environment="JENKINS_PORT=8090"
+
+7. Starting Jenkins service
+sudo systemctl start jenkins
