@@ -8,6 +8,7 @@ $ sudo apt update
 $ sudo apt install openjdk-8-jdk
 
 Alternatively, install version 11:
+$ sudo apt update
 $ sudo apt install openjdk-11-jdk
 Confirm the download by pressing Y and
 Enter
